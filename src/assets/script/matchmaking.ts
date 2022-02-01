@@ -22,7 +22,7 @@ const getUserFromDb = ():User => {
     }
 }
 interface MatchMaking{
-    socket : WebSocket;
+    socket : WebSocket | null;
     createVisualMatchmaking: Function;
     launchMatchMaking : Function;
     stopMatchMaking : Function;
@@ -31,15 +31,17 @@ interface MatchMaking{
     output: HTMLDivElement | null;
     startButton: HTMLButtonElement | null;
     stopButton: HTMLButtonElement | null;
+    toggleMatchMaking: boolean;
 }
 class MatchMaking implements MatchMaking{
     constructor(socket: string, container : HTMLElement, user : User) {
-        this.socket = new WebSocket(socket)
+        this.socket = null
         this.container = container
         this.user = user
         this.startButton = null
         this.stopButton = null
         this.output = null
+        this.toggleMatchMaking = true
 
 
         this.createVisualMatchmaking = () =>{
@@ -50,13 +52,17 @@ class MatchMaking implements MatchMaking{
             this.startButton.innerHTML = "launch matchmaking"
             this.stopButton.innerHTML = "stop matchmaking"
 
-            /*
-            if (this.startButton){
-                this.startButton.addEventListener("click", ()=>{
+            this.startButton.addEventListener('click', () =>{
+                if(this.toggleMatchMaking){
                     this.launchMatchMaking()
-                })
-            }
-            */
+                    this.toggleMatchMaking = false
+                }
+            })
+
+            this.stopButton.addEventListener('click',()=>{
+                this.stopMatchMaking()
+                this.toggleMatchMaking = true
+            })
 
             const buttonContainer = document.createElement('div')
             buttonContainer.appendChild(this.startButton)
@@ -80,6 +86,7 @@ class MatchMaking implements MatchMaking{
         this.createVisualMatchmaking()
 
         this.launchMatchMaking = () =>{
+            this.socket = new WebSocket(socket)
             console.log("Attempting connection...")
             this.socket.onopen = () => {
                 console.log("Successfully Connected");
@@ -93,10 +100,8 @@ class MatchMaking implements MatchMaking{
             }
         }
 
-        this.launchMatchMaking()
-
         this.stopMatchMaking = () =>{
-            this.socket.close()
+            if(this.socket) this.socket.close()
         }
 
     }
