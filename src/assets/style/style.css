@@ -1,36 +1,9 @@
 *{
   background: var(--background);
+  
 }
 body{
-  display: flex;
-  flex-direction: column;
-}
-#chat{
-  margin-left: auto;
-  margin-right: auto;
-  width: 95%;
-  height: 35px;
-  border: none;
-  color: var(--font-color);
-  background-color: rgba(197, 189, 189, 0.157);
-  border: 2px solid rgb(29, 28, 28);
-  outline: none;
-  border: none;
-  padding-left: 45px;
-  border-radius: 5px;
-  font-size: var(--font-size);
-}
-#chat>p{
-  color: var(--font-color);
-}
-.containText{
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--font-color);
-  width: 100%;
-  text-align: center;
-}
-.name{
-  color: rgb(187, 64, 27);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }

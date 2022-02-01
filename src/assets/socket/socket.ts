@@ -1,3 +1,5 @@
+
+/*
 const socket = new WebSocket("ws://localhost:9100/ws")
 
 const btn = document.getElementById("btn") as HTMLButtonElement
@@ -81,3 +83,4 @@ const socketConnnexionStart = () => {
 }
 
 socketConnnexionStart()
+*/
