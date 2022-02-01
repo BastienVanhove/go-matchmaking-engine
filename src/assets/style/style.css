@@ -8,6 +8,7 @@ body{
   overflow: hidden;
 }
 #start{
+  margin-top: 10px;
   border: none;
   background: var(--style-color);
   color: var(--font-color);
@@ -20,5 +21,6 @@ body{
   color: var(--font-color);
 }
 .load-mathmaking{
+  margin-top: 25px;
   color: var(--font-color);
 }
