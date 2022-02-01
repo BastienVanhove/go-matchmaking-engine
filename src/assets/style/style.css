@@ -1,9 +1,24 @@
 *{
   background: var(--background);
-  
+
 }
 body{
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
+#start{
+  border: none;
+  background: var(--style-color);
+  color: var(--font-color);
+  height: 35px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#profile{
+  color: var(--font-color);
+}
+.load-mathmaking{
+  color: var(--font-color);
 }
