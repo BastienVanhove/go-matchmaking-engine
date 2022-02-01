@@ -1,26 +1,14 @@
 *{
-  background: var(--background);
-
+  padding: 0;
+  margin: 0;
 }
 body{
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background: rgb(78, 78, 156);
 }
-#start{
-  margin-top: 10px;
-  border: none;
-  background: var(--style-color);
-  color: var(--font-color);
-  height: 35px;
-  width: 100px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-#profile{
-  color: var(--font-color);
-}
-.load-mathmaking{
-  margin-top: 25px;
-  color: var(--font-color);
+.matchmaking{
+  display: flex;
+  flex-direction: column;
 }

@@ -5,7 +5,7 @@ import (
     "fmt"
     "net/http"
 
-    "root/websocket"
+    "root/pool"
 )
 
 //from package Utility
@@ -61,7 +61,7 @@ func setupRoutes() {
 
     go pool.Start()
 
-    http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
+    http.HandleFunc("/matchmaking", func(w http.ResponseWriter, r *http.Request) {
         serveWs(pool, w, r)
     })
     
